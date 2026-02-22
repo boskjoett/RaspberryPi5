@@ -1,2 +1,5 @@
-# RaspberryPi5
-C# software for Raspberry PI 5
+# Raspberry Pi 5
+This repo contains C# software for Raspberry Pi 5.
+
+![Photo](images/PI5.png)
+
