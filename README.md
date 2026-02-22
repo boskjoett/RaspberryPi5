@@ -5,8 +5,8 @@ This repo contains C# software for Raspberry Pi 5. My variant has 8 GB RAM.
 
 ### Board Components
 
-![Photo](images/PI5-components.jpg)
+![Photo](images/Pi5-components.jpg)
 
 ### GPIO Pinout
 
-![Photo](images/PI5-components.jpg)
+![Photo](images/Pi5-gpio-pinout.png)
