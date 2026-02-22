@@ -24,3 +24,12 @@ Password: *The usual one*
 
 You can login using ssh.
 
+## Installing .NET SDK
+
+Install the latest .NET SDK with apt install like this
+
+    sudo apt install dotnet-sdk-10.0
+
+Verify the .NET installation with the following command:
+
+    dotnet --version
