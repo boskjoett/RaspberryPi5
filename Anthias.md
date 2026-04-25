@@ -38,4 +38,7 @@ Install Tailscale on the Raspberry Pi.
 
     sudo tailscale --bg funnel 80
 
-    
+You can now acceess the Anthias web server via a URL like this
+
+https://raspberrypi.tailccc4a6.ts.net/
+
