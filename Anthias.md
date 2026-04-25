@@ -25,6 +25,10 @@ Command to see available wifi networks
 
     nmcli dev wifi list
 
+Command to connect to a wifi network
+
+    sudo nmcli --ask dev wifi connect <example_ssid>
+
 See more here https://www.raspberrypi.com/documentation/computers/configuration.html#wireless-connection
 
 ### Verifying Wifi Connection
