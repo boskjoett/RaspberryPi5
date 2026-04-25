@@ -7,7 +7,8 @@ GitHub repository: https://github.com/Screenly/Anthias/
 
 ## Installing an OS on Raspberry Pi
 
-Download an image to install on an SD card from the Anthias releases page https://github.com/Screenly/Anthias/releases
+Download an image to install on an SD card from the Anthias releases page https://github.com/Screenly/Anthias/releases <br />
+This will install Raspberry Pi OS Lite and Anthias.
 
 Write the image to an SD card (16 GB) using the Raspberry Pi imager.
 
