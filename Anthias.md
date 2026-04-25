@@ -7,5 +7,35 @@ GitHub repository: https://github.com/Screenly/Anthias/
 
 ## Installing an OS on Raspberry Pi
 
-Debian 64-bit bookworm
+Download an image to install on an SD card from the Anthias releases page https://github.com/Screenly/Anthias/releases
 
+Write the image to an SD card (16 GB) using the Raspberry Pi imager.
+
+When Anthias starts up you will see its logo screen. You can break out to a console by pressing Alt+F4
+
+## Configuring wifi
+In the console you can configure wifi with this command
+
+???
+
+### Verifying Wifi Connection
+Use `ifconfig wlan0` to check for an IP address or `iwconfig` to see the connected SSID. 
+
+## Accessing the Anthias Management UI
+
+Open a web browser on a PC that is connected to the same wifi and enter http://<ip address>
+where *IP address* is the IP address of the Raspberry Pi.
+
+## Remote Access to Anthias Management UI
+
+You can gain access to the Raspberry Pi from a remote PC by using Tailscale.
+
+With Tailscale you don't need to configure NAT or port forwarding on the router. You access the Raspberry Pi via Tailscale's cloud service.
+
+Install Tailscale on the Raspberry Pi.
+
+### Create a funnel to the Anthias web server
+
+    sudo tailscale --bg funnel 80
+
+    
