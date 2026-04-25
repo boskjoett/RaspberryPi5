@@ -41,15 +41,31 @@ where *IP address* is the IP address of the Raspberry Pi.
 
 ## Remote Access to Anthias Management UI
 
-You can gain access to the Raspberry Pi from a remote PC by using Tailscale.
+The Management UI is provided by an Anthias web server listening on port 80 on the Raspberry Pi.
+
+You can gain access to the Raspberry Pi from a remote PC by using [Tailscale](https://tailscale.com/) which is free for personal use.
 
 With Tailscale you don't need to configure NAT or port forwarding on the router. You access the Raspberry Pi via Tailscale's cloud service.
 
 Install Tailscale on the Raspberry Pi.
 
+Create an account in Tailscale (using your Google account)
+
+Login to the Tailscale Admin Console
+
+Add your Raspberry Pi as a machine in Tailscale.
+
+Give it a tag `webserver`.
+
+Define a service. Call it "anthias" and connect it to port tcp:443
+
 ### Create a funnel to the Anthias web server
 
-    sudo tailscale --bg funnel 80
+See https://tailscale.com/docs/reference/examples/funnel
+
+    sudo tailscale funnel --bg 80
+
+To see funnel status: `tailscale funnel status`
 
 You can now acceess the Anthias web server via a URL like this
 
