@@ -5,6 +5,8 @@ See https://anthias.screenly.io/
 
 GitHub repository: https://github.com/Screenly/Anthias/
 
+Anthias only supports Debian-based Armbian images (Bookworm / Trixie). The installer wires up the Docker apt repository under download.docker.com/linux/debian, so Ubuntu-based Armbian downloads (Jammy / Noble) will fail at the apt update step.
+
 ## Installing an OS on Raspberry Pi
 
 Download an image to install on an SD card from the Anthias releases page https://github.com/Screenly/Anthias/releases <br />
