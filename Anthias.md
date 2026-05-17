@@ -9,12 +9,22 @@ Anthias only supports Debian-based Armbian images (Bookworm / Trixie). The insta
 
 ## Installing an OS on Raspberry Pi
 
-Download an image to install on an SD card from the Anthias releases page https://github.com/Screenly/Anthias/releases <br />
-This will install Raspberry Pi OS Lite (no Desktop UI) and Anthias.
+Use Raspberry Pi Imager to install Raspberry Pi OS Lite 64-bit on an SD card (32 GB).
 
-Write the image to an SD card (16 GB) using the Raspberry Pi imager.
+During the installation process you will be asked to 
+- enter a root username and password.
+- enter Wifi name and password
+- whether to enable SSH - choose yes
+- whether to enable Raspberry Pi Connect - choose yes
+
+Boot up on the new OS and install Anthias by using its installation script.
+
+    bash <(curl -sL https://install-anthias.srly.io)
 
 When Anthias starts up you will see its logo screen. You can break out to a console by pressing Alt+F4
+
+With this installation method you have SSH access to the Raspberry Pi for further customization. 
+If you choose to install Anthias directly from the Raspberry Pi Imager you will get BalenaOS and no SSH access.
 
 ## Configuring wifi
 In the console you can configure wifi with this command
@@ -45,7 +55,9 @@ where *IP address* is the IP address of the Raspberry Pi.
 
 The Management UI is provided by an Anthias web server listening on port 80 on the Raspberry Pi.
 
-You can gain access to the Raspberry Pi from a remote PC by using [Tailscale](https://tailscale.com/) which is free for personal use.
+You can gain access to the Raspberry Pi from a remote PC by using the free [Raspberry Pi Connect](https://www.raspberrypi.com/software/connect/) service.
+
+Or you can use [Tailscale](https://tailscale.com/) which is free for personal use.
 
 With Tailscale you don't need to configure NAT or port forwarding on the router. You access the Raspberry Pi via Tailscale's cloud service.
 
