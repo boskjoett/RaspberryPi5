@@ -74,7 +74,13 @@ Add your Raspberry Pi as a machine in Tailscale.
 
 Give it a tag `webserver`.
 
-Define a service. Call it "anthias" and connect it to port tcp:443
+Define a service. Call it e.g. "anthias-raspberry4" and connect it to port tcp:443
+
+Define the same service on the Raspberry device with a command like this
+
+    sudo tailscale serve --service=svc:anthias-raspberry4 --https=443 127.0.0.1:80
+
+Approve the service in the Tailscale admin console.
 
 ### Create a funnel to the Anthias web server
 
