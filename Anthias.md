@@ -43,6 +43,9 @@ Command to connect to a wifi network
 
 See more here https://www.raspberrypi.com/documentation/computers/configuration.html#wireless-connection
 
+Sometimes connection fails because the Wifi access point does not allow more connections.
+Try connecting to 5G instead.
+
 ### Verifying Wifi Connection
 Use `ifconfig wlan0` to check for an IP address or `iwconfig` to see the connected SSID. 
 
