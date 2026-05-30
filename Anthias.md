@@ -21,7 +21,8 @@ Boot up on the new OS and install Anthias by using its installation script.
 
     bash <(curl -sL https://install-anthias.srly.io)
 
-When Anthias starts up you will see its logo screen. You can break out to a console by pressing Alt+F4
+When Anthias starts up you will see its logo screen. \
+You can break out to a console by pressing Ctrl + Alt + F1 (or Alt + F4)
 
 With this installation method you have SSH access to the Raspberry Pi for further customization. 
 If you choose to install Anthias directly from the Raspberry Pi Imager you will get BalenaOS and no SSH access.
