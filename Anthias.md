@@ -115,7 +115,7 @@ You can now acceess the Anthias web server via a URL like this
 
 https://raspberrypi.tailccc4a6.ts.net/
 
-## Upgrade Anthias
+## How to Update Anthias
 
 When the Anthias **System Info** page shows "Update avaliable" you update by
 
