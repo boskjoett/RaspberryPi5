@@ -91,6 +91,8 @@ Define the same service on the Raspberry device with a command like this
 
 Approve the service in the Tailscale admin console.
 
+No Exit Node is needed, but a Funnel is needed.
+
 ### Create a funnel to the Anthias web server
 
 See https://tailscale.com/docs/reference/examples/funnel
