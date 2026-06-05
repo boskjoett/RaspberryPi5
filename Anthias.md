@@ -99,6 +99,16 @@ See https://tailscale.com/docs/reference/examples/funnel
 
 To see funnel status: `tailscale funnel status`
 
+```
+# tailscale funnel status
+
+# Funnel on:
+#     - https://raspberrypi-4-anthias.tailccc4a6.ts.net
+
+https://raspberrypi-4-anthias.tailccc4a6.ts.net (Funnel on)
+|-- / proxy http://127.0.0.1:80
+```
+
 You can now acceess the Anthias web server via a URL like this
 
 https://raspberrypi.tailccc4a6.ts.net/
