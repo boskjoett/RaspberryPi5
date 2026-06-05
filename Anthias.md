@@ -52,8 +52,10 @@ Use `ifconfig wlan0` to check for an IP address or `iwconfig` to see the connect
 
 ## Accessing the Anthias Management UI
 
-Open a web browser on a PC that is connected to the same wifi and enter http://<ip address>
+Open a web browser on a PC that is connected to the same LAN or wifi and enter http://<ip address>
 where *IP address* is the IP address of the Raspberry Pi.
+
+When Anthias boots up it also shows a splash screen with its IP address for a few seconds.
 
 ## Remote Access to Anthias Management UI
 
@@ -63,11 +65,17 @@ You can gain access to the Raspberry Pi from a remote PC by using the free [Rasp
 
 Or you can use [Tailscale](https://tailscale.com/) which is free for personal use.
 
-With Tailscale you don't need to configure NAT or port forwarding on the router. You access the Raspberry Pi via Tailscale's cloud service.
+With Tailscale and Raspberry Pi Connect you don't need to configure NAT or port forwarding on the router. 
+You access the Raspberry Pi via Tailscale's or Raspberry Pi Connect's cloud service.
+
+When you make the Raspberry Pi Image using the Raspberry Pi Imager program on Windows you are asked if you
+want to install Raspberry Pi Connect - say yes.
+
+Create a account in Raspberry Pi Connect (sign in with Google using your Google account).
 
 Install Tailscale on the Raspberry Pi.
 
-Create an account in Tailscale (using your Google account)
+Create an account in Tailscale (sign in with Google using your Google account).
 
 Login to the Tailscale Admin Console
 
