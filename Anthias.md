@@ -122,4 +122,66 @@ When the Anthias **System Info** page shows "Update avaliable" you update by
 - SSH into your device (using Raspberry Pi Connect)
 - Run the upgrade script:~/anthias/bin/run_upgrade.sh
 
+## Remote Access to Web Camera
 
+An nginx reverse proxy is used to give remote access to both the local Anthias web server at port 80 
+and a web camera with an embedded web server at port 80 and LAN IP address 10.52.252.10
+
+nginx.conf file
+
+```
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+
+    keepalive_timeout 65;
+
+    access_log /var/log/nginx/access.log;
+    error_log  /var/log/nginx/error.log;
+
+    server {
+        listen 127.0.0.1:8443;
+        server_name _;
+
+        #
+        # Raspberry Pi local service
+        #
+        location / {
+            proxy_pass http://127.0.0.1:80;
+
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto https;
+
+            proxy_http_version 1.1;
+        }
+
+        #
+        # Camera
+        #
+        location /cam/ {
+            proxy_pass http://10.52.252.10:80/;
+
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto https;
+
+            proxy_http_version 1.1;
+        }
+    }
+}
+```
