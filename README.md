@@ -20,7 +20,7 @@ The software projects in this repo are written for Ubuntu.
 
 The hostname of the Raspberry Pi 5 is **raspberrypi**. \
 User: bcs \
-Password: *The usual one*
+Password: *The usual one* (scanner company)
 
 You can login using ssh.
 
