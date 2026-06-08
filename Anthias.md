@@ -127,6 +127,12 @@ When the Anthias **System Info** page shows "Update avaliable" you update by
 An nginx reverse proxy is used to give remote access to both the local Anthias web server at port 80 
 and a web camera with an embedded web server at port 80 and LAN IP address 10.52.252.10
 
+Assuming 
+- The Anthias web server is on 127.0.0.1:80
+- The camera's embedded web server is on 10.52.252.10:80
+- Nginx listens on 127.0.0.1:8443
+- Tailscale Funnel forwards to http://127.0.0.1:8443
+
 nginx.conf file
 
 ```
@@ -185,3 +191,14 @@ http {
     }
 }
 ```
+
+Create funnel to nginx
+```
+tailscale serve --bg 8443 http://127.0.0.1:8443
+tailscale funnel 8443 on
+```
+
+After creating a funnel Anthias is available at <br />
+https://raspberrypi-4-anthias.tailccc4a6.ts.net:8443 <br />
+and camera is available at <br />
+https://raspberrypi-4-anthias.tailccc4a6.ts.net:8443/cam
