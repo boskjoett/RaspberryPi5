@@ -122,7 +122,16 @@ When the Anthias **System Info** page shows "Update avaliable" you update by
 - SSH into your device (using Raspberry Pi Connect)
 - Run the upgrade script:~/anthias/bin/run_upgrade.sh
 
-## Remote Access to Web Camera
+# Web Camera
+
+An AXIS M1025 web camera is available at the local LAN at IP address 10.52.252.10.
+It has a local web server running port 80 from which you can see a live video feed from the camera.
+
+## Remote access to the web camera via a Tailscale funnel
+
+    sudo tailscale funnel --bg http://10.52.252.10
+
+## Remote Access to both the Web Camera and Anthias
 
 An nginx reverse proxy is used to give remote access to both the local Anthias web server at port 80 
 and a web camera with an embedded web server at port 80 and LAN IP address 10.52.252.10
