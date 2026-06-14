@@ -203,8 +203,8 @@ http {
 
 Create funnel to nginx
 ```
-tailscale serve --bg 8443 http://127.0.0.1:8443
-tailscale funnel 8443 on
+sudo tailscale funnel --bg 8443
+
 ```
 
 After creating a funnel Anthias is available at <br />
