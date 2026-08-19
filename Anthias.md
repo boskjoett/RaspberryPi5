@@ -73,7 +73,7 @@ want to install Raspberry Pi Connect - say yes.
 
 Create a account in Raspberry Pi Connect (sign in with Google using your Google account).
 
-Install Tailscale on the Raspberry Pi.
+Install Tailscale on the Raspberry Pi. See https://tailscale.com/download/linux
 
 Create an account in Tailscale (sign in with Google using your Google account).
 
