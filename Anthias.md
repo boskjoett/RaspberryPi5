@@ -55,6 +55,19 @@ sudo nmcli connection add type wifi ifname wlan0 con-name "AK-net" ssid "AK-net"
   connection.autoconnect yes \
   connection.autoconnect-priority 100
 ```
+If a password is required the command is
+
+```
+sudo nmcli connection add \
+  type wifi \
+  ifname wlan0 \
+  con-name "AK-net" \
+  ssid "AK-net" \
+  wifi-sec.key-mgmt wpa-psk \
+  wifi-sec.psk "YOUR_PASSWORD" \
+  connection.autoconnect yes \
+  connection.autoconnect-priority 100
+```
 
 ### Verifying Wifi Connection
 Use `ifconfig wlan0` to check for an IP address or `iwconfig` to see the connected SSID. 
