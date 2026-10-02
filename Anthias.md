@@ -48,10 +48,10 @@ Sometimes connection fails because the Wifi access point does not allow more con
 Try connecting to 5G instead.
 
 If you know the name (SSID) of the wifi you do not have to be in the presence of the wifi to preconfigure
-Raspberry Pi to connect to it. Just issue these commands, if the SSID is for example "AK-net"
+Raspberry Pi to connect to it. Just issue these commands, if the SSID is for example "ALK-Internet"
 
 ```
-sudo nmcli connection add type wifi ifname wlan0 con-name "AK-net" ssid "AK-net" \
+sudo nmcli connection add type wifi ifname wlan0 con-name "ALK-Internet" ssid "AK-net" \
   connection.autoconnect yes \
   connection.autoconnect-priority 100
 ```
@@ -61,7 +61,7 @@ If a password is required the command is
 sudo nmcli connection add \
   type wifi \
   ifname wlan0 \
-  con-name "AK-net" \
+  con-name "ALK-Internet" \
   ssid "AK-net" \
   wifi-sec.key-mgmt wpa-psk \
   wifi-sec.psk "YOUR_PASSWORD" \
