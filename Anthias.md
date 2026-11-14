@@ -161,71 +161,30 @@ and a web camera with an embedded web server at port 80 and LAN IP address 10.52
 Assuming 
 - The Anthias web server is on 127.0.0.1:80
 - The camera's embedded web server is on 10.52.252.10:80
-- Nginx listens on 127.0.0.1:8443
-- Tailscale Funnel forwards to http://127.0.0.1:8443
+- Nginx listens on 127.0.0.1:8081
+- One Tailscale Funnel forwards to http://127.0.0.1:80.  (Anthias)
+- One Tailscale Funnel forwards to http://127.0.0.1:8081 (the webcam)
 
-nginx.conf file
+nginx.conf file forwarding traffic on port 8081 to the webcam
 
 ```
-user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
+server {
+    listen 8081;
+    server_name _;
 
-events {
-    worker_connections 1024;
-}
+    location / {
+        proxy_pass http://10.52.252.10:80;
 
-http {
-    include       /etc/nginx/mime.types;
-    default_type  application/octet-stream;
-
-    sendfile on;
-    tcp_nopush on;
-    tcp_nodelay on;
-
-    keepalive_timeout 65;
-
-    access_log /var/log/nginx/access.log;
-    error_log  /var/log/nginx/error.log;
-
-    server {
-        listen 127.0.0.1:8443;
-        server_name _;
-
-        #
-        # Raspberry Pi local service
-        #
-        location / {
-            proxy_pass http://127.0.0.1:80;
-
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto https;
-
-            proxy_http_version 1.1;
-        }
-
-        #
-        # Camera
-        #
-        location /cam/ {
-            proxy_pass http://10.52.252.10:80/;
-
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto https;
-
-            proxy_http_version 1.1;
-        }
+        proxy_set_header Host 10.52.252.10;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
 }
 ```
 
 Create funnel to nginx
 ```
-sudo tailscale funnel --bg 8443
+sudo tailscale funnel --https=8443 --bg http://127.0.0.1:8081
 
 ```
 
