@@ -187,8 +187,17 @@ Create funnel to nginx
 sudo tailscale funnel --https=8443 --bg http://127.0.0.1:8081
 
 ```
+Create funnel to local Anthias web server
+```
+sudo tailscale funnel --https=443 --bg http://127.0.0.1:80
+
+```
 
 After creating a funnel Anthias is available at <br />
-https://raspberrypi-4-anthias.tailccc4a6.ts.net:8443 <br />
+https://raspberrypi-4-anthias.tailccc4a6.ts.net <br />
 and camera is available at <br />
-https://raspberrypi-4-anthias.tailccc4a6.ts.net:8443/cam
+https://raspberrypi-4-anthias.tailccc4a6.ts.net:8443
+
+At one.com these DNS names are configured<br />
+klubhus-tv.atpk3450.dk -> https://raspberrypi-4-anthias.tailccc4a6.ts.net <br />
+webcam.atpk3450.dk -> https://raspberrypi-4-anthias.tailccc4a6.ts.net:8443<br />
