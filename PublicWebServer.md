@@ -22,6 +22,8 @@ I own the hostname **skjoett.com** and I want the Pi to be reachable on a skjoet
   - External port 80 -> internal port 80
   - External port 443 -> internal port 443
 
+Port 80 is used by Let's Encrypt to verify that you control the domain.
+
 Because my IP address is dynamic I need to setup dynamic DNS in my router so it informs a DNS service about IP address changes. \
 I will use Dynu, a free Dynamic DNS provider. \
 Dynu has specific setup instructions for a Sgamecom router at 
@@ -56,11 +58,26 @@ Use these settings:
 Since your domain is hosted at an ISP, we need to delegate just the pi.skjoett.com subdomain to Dynu. \
 In the ISP's DNS settings, create NS records for hostname pi, pointing to Dynu's nameservers:
 
-| Type | Hostname | Target |
-| NS.  | pi	ns1.dynu.com |
-| NS	pi	ns2.dynu.com |
-| NS	pi	ns3.dynu.com |
-| NS	pi	ns4.dynu.com |
-| NS	pi	ns5.dynu.com |
+| Type | Hostname | Target       |
+| -----| -------- | ------------ |
+| NS   | pi       | ns1.dynu.com |
+| NS   | pi       | ns2.dynu.com |
+| NS	 | pi       | ns3.dynu.com |
+| NS	 | pi	      | ns4.dynu.com |
+| NS	 | pi	      | ns5.dynu.com |
 
 This delegates only pi.skjoett.com; your main domain and email can remain at the ISP.
+
+## Get a certificate
+
+We use Let's Encrypt to obtain a free, trusted HTTPS certificate, and Caddy to manage it automatically on the Raspberry Pi.
+
+The nice thing about Caddy is that it:
+- Obtains the certificate automatically.
+- Renews it before it expires.
+- Configures HTTPS for you.
+- Redirects HTTP traffic to HTTPS.
+- Requires very little maintenance.
+
+You won't need to buy a certificate or manually renew one.
+
