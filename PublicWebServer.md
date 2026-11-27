@@ -68,7 +68,7 @@ In the ISP's DNS settings, create NS records for hostname pi, pointing to Dynu's
 
 This delegates only pi.skjoett.com; your main domain and email can remain at the ISP.
 
-## Get a certificate
+## Install Caddy
 
 We use Let's Encrypt to obtain a free, trusted HTTPS certificate, and Caddy to manage it automatically on the Raspberry Pi.
 
@@ -81,3 +81,24 @@ The nice thing about Caddy is that it:
 
 You won't need to buy a certificate or manually renew one.
 
+Install Caddy on the Raspberry Pi
+
+    sudo apt update
+    sudo apt install caddy
+
+Edit the configuration:
+
+    sudo nano /etc/caddy/Caddyfile
+
+```
+pi.skjoett.com {
+    reverse_proxy localhost:5000
+}
+```
+
+Save the file and restart Caddy
+
+   sudo systemctl restart caddy
+   sudo systemctl status caddy
+
+Test the web page at https://pi.skjoett.com
